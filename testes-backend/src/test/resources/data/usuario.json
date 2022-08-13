@@ -1,0 +1,8 @@
+{
+  "nome": "teste",
+  "foto": "teste",
+  "autenticacaoDto": {
+    "email": "teste@dbccompany.com.br",
+    "senha": "123456"
+  }
+}
