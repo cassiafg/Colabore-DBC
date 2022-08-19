@@ -3,21 +3,34 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import service.UsuarioService;
 
+/**
+ * Classe de testes criada para garantir o funcionamento das principais operações
+ * sobre usuários, realizadas pelo endpoint usuario-controller
+ */
 public class UsuarioAceitacao {
     UsuarioService usuarioService = new UsuarioService();
 
-    @Test
-    public void getUsuarioLogado(){
+    /**
+     * Teste para listar um usuário logado com sucesso
+     */
+    @Test  //GET - listar usuário logado com sucesso
+    public void testGetUsuarioLogado(){
+        /* ========== Execução ========== */
         //GET - chamada para o serviço
         Response resultService = usuarioService.listarUsuarioLogadoComSucesso();
-        //Validação
+        /* ========== Validações ========== */
         Assert.assertEquals(resultService.getStatusCode(), 200);
     }
 
-    @Test
+    /**
+     * Teste para listar um usuário logado sem autorização
+     */
+    @Test  //GET - listar usuário logado sem sucesso
     public void getUsuarioLogadoSemAutorizacao(){
+        /* ========== Execução ========== */
         //GET - chamada para o serviço
         Response resultService = usuarioService.listarUsuarioLogadoSemAutorizacao();
+        /* ========== Validações ========== */
         //Validação
         Assert.assertEquals(resultService.getStatusCode(), 403);
     }
