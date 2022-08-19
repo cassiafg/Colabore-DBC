@@ -10,21 +10,27 @@ import java.io.File;
 
 import static io.restassured.RestAssured.given;
 
+/**
+ * Classe de testes criada para garantir o funcionamento das principais operações
+ * sobre autenticação, realizadas pelo endpoint autenticacao-controller
+ */
 public class AutenticacaoService {
-
+    //declaração das variáveis utilizadas nos testes
     String baseuri = "https://colabore-dbc-api.herokuapp.com/autenticacao";
-    String token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb2xhYm9yZS1hcGkiLCJqdGkiOjYsImlhdCI6MTY2MDc3NDA0NCwiZXhwIjoxNjYwODYwNDQ0fQ.1jFmXaBCHyNQWM4CvJ233-1ZVYxEpI-IoNuKwiM3vTY";
+    String token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb2xhYm9yZS1hcGkiLCJqdGkiOjU5LCJpYXQiOjE2NjA5MjQ2MzgsImV4cCI6MTY2MTAxMTAzOH0.nNAkGBVIYNSv49jodWRwBYaLVn2X9BWU84YgJuCUMHc";
 
+    //request body com dados da biblioteca faker
     RegisterRequestBody registerRequestBody = new RegisterRequestBody();
     Faker faker = new Faker();
     private String nome = faker.name().firstName();
     private String email = faker.name().username()+"@dbccompany.com.br";
     private String emailError = faker.internet().emailAddress();
     private String senha = "123";
-//    private java.io.File file = new java.io.File("src/test/resources/data/teste.jpg");
 
-
-    public Response registrarUsuarioComSucesso(RegisterRequestBody registerRequestBody) {
+    /**
+     * Teste para cadastrar um usuário com sucesso, utilizando dados da biblioteca faker
+     */
+    public Response cadastrarUsuarioComSucesso(RegisterRequestBody registerRequestBody) {
         this.registerRequestBody.setNome(nome);
         this.registerRequestBody.setEmail(email);
         this.registerRequestBody.setSenha(senha);
@@ -40,7 +46,11 @@ public class AutenticacaoService {
                 .extract().response();
     }
 
-    public Response registrarUsuarioComEmailForaDoPadrao(RegisterRequestBody registerRequestBody) {
+    /**
+     * Teste para cadastrar um usuário sem sucesso, utilizando um e-mail fora do padrão
+     * exigido (@dbccompany.com.br)
+     */
+    public Response cadastrarUsuarioComEmailForaDoPadrao(RegisterRequestBody registerRequestBody) {
         this.registerRequestBody.setNome(nome);
         this.registerRequestBody.setEmail(emailError);
         this.registerRequestBody.setSenha(senha);
@@ -56,7 +66,10 @@ public class AutenticacaoService {
                 .extract().response();
     }
 
-    public Response registrarUsuarioSemNome(String jsonBody) {
+    /**
+     * Teste para cadastrar um usuário sem sucesso, não informando o seu nome
+     */
+    public Response cadastrarUsuarioSemNome(String jsonBody) {
         return given()
                 .contentType(ContentType.JSON)
                 .log().all()
@@ -69,6 +82,10 @@ public class AutenticacaoService {
                 .extract().response();
     }
 
+    /**
+     * Teste para realizar um login com sucesso, informando os dados de
+     * um usuário previamente cadastrado no sistema
+     */
     public Response logarUsuarioComSucesso(String jsonBody) {
         return given()
                 .contentType(ContentType.JSON)
@@ -82,6 +99,10 @@ public class AutenticacaoService {
                 .extract().response();
     }
 
+    /**
+     * Teste para realizar um login sem sucesso, informando senha inválida para
+     * um usuário previamente cadastrado no sistema
+     */
     public Response logarUsuarioComSenhaInvalida(String jsonBody) {
         return given()
                 .contentType(ContentType.JSON)
@@ -95,6 +116,10 @@ public class AutenticacaoService {
                 .extract().response();
     }
 
+    /**
+     * Teste para realizar um login sem sucesso, informando e-mail inválido para
+     * um usuário previamente cadastrado no sistema
+     */
     public Response logarUsuarioComEmailInvalido(String jsonBody) {
         return given()
                 .contentType(ContentType.JSON)
@@ -108,6 +133,10 @@ public class AutenticacaoService {
                 .extract().response();
     }
 
+    /**
+     * Teste para cadastrar uma foto com sucesso para
+     * um usuário previamente cadastrado e logado no sistema
+     */
     public Response createFotoComSucesso() {
         return given().header("Authorization", token)
                 .header(new Header("content-type", "multipart/form-data" ))
@@ -121,6 +150,11 @@ public class AutenticacaoService {
                 .extract().response();
     }
 
+    /**
+     * Teste para cadastrar uma foto sem sucesso para
+     * um usuário previamente cadastrado e logado no sistema
+     * não enviando o arquivo
+     */
     public Response createFotoSemEnviarArquivo() {
         return given().header("Authorization", token)
                 .header(new Header("content-type", "multipart/form-data" ))
@@ -134,6 +168,10 @@ public class AutenticacaoService {
                 .extract().response();
     }
 
+    /**
+     * Teste para cadastrar uma foto sem sucesso para
+     * um usuário não logado no sistema
+     */
     public Response createFotoSemAutorizacao() {
         return given()
                 .header(new Header("content-type", "multipart/form-data" ))
