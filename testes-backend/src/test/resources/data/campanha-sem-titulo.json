@@ -5,9 +5,6 @@
   "dataLimite": "2022-09-19T19:25:59.167Z",
   "nome": "nomeTeste",
   "tags": [
-    {
-      "nomeTag": "tag",
-      "idTag": 35
-    }
+      "tag"
   ]
 }

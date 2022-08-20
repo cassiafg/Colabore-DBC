@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.given;
  */
 public class CampanhaService {
     String baseuri = "https://colabore-dbc-api.herokuapp.com/campanha";
-    String token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb2xhYm9yZS1hcGkiLCJqdGkiOjU5LCJpYXQiOjE2NjA5MjQ2MzgsImV4cCI6MTY2MTAxMTAzOH0.nNAkGBVIYNSv49jodWRwBYaLVn2X9BWU84YgJuCUMHc";
+    String token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb2xhYm9yZS1hcGkiLCJqdGkiOjY0LCJpYXQiOjE2NjEwMTMzNTIsImV4cCI6MTY2MTA5OTc1Mn0.uP5JIPERdLypIr6XkR4DemT41GukaVARvCOflgbQTBQ";
 
     /**
      * Teste para cadastrar uma campanha com sucesso

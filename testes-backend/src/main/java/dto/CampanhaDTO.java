@@ -14,7 +14,7 @@ public class CampanhaDTO {
     private boolean encerrarAutomaticamente;
     private String dataLimite;
     private String nome;
-    private List<TagDTO> tags;
+    private List<String> tags;
     private Integer idUsuario;
     private Integer arrecadacao;
     private boolean statusMeta;

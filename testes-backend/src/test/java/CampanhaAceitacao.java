@@ -33,7 +33,7 @@ public class CampanhaAceitacao {
         //POST - chamada para o serviço
         CampanhaDTO resultService = campanhaService.cadastrarCampanhaComSucesso(jsonBody);
         /* ========== Validações ========== */
-        Assert.assertEquals(resultService.getTitulo(), "campanhaTeste");
+        Assert.assertEquals(resultService.getTitulo(), "tituloTeste");
         Assert.assertEquals(resultService.getDescricao(), "descricaoTeste");
     }
 

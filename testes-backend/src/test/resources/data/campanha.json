@@ -1,14 +1,11 @@
 {
-  "meta": 100,
-  "titulo": "campanhaTeste",
+  "meta": 1000,
+  "titulo": "tituloTeste",
   "descricao": "descricaoTeste",
-  "encerrarAutomaticamente": false,
-  "dataLimite": "2022-09-19T19:25:59.167Z",
+  "encerrarAutomaticamente": true,
+  "dataLimite": "2022-09-20T16:35:01.190Z",
   "nome": "nomeTeste",
   "tags": [
-    {
-      "nomeTag": "tag",
-      "idTag": 35
-    }
+    "tag"
   ]
 }
