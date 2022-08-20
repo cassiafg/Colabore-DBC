@@ -13,7 +13,7 @@ public class CreateUserSteps extends Browser {
     CampanhasPage campanhasPage = new CampanhasPage();
 
     @Test
-    public void criarUsuarioComSucesso(){
+    public void criarUsuarioComSucessoSemFoto(){
         //Clicar em não possuo cadastro
         loginPage.clicarBtnNaoPossuoCadastro();
         //Preencher dados
@@ -21,6 +21,22 @@ public class CreateUserSteps extends Browser {
         createUserPage.preencherEmailValido();
         createUserPage.preencherSenhaValida();
         createUserPage.confirmarSenhaValida();
+        //Clicar botão cadastrar
+        createUserPage.clicarBtnCadastrar();
+        //Validação
+        Assert.assertEquals(campanhasPage.validarBtnMinhasCampanhas(), "Minhas Campanhas");
+    }
+
+    @Test
+    public void criarUsuarioComSucessoComFoto(){
+        //Clicar em não possuo cadastro
+        loginPage.clicarBtnNaoPossuoCadastro();
+        //Preencher dados
+        createUserPage.preencherNomeValido();
+        createUserPage.preencherEmailValido();
+        createUserPage.preencherSenhaValida();
+        createUserPage.confirmarSenhaValida();
+        createUserPage.enviarFoto();
         //Clicar botão cadastrar
         createUserPage.clicarBtnCadastrar();
         //Validação
@@ -65,9 +81,9 @@ public class CreateUserSteps extends Browser {
         createUserPage.preencherNomeValido();
         createUserPage.preencherEmailValido();
         createUserPage.preencherSenhaValida();
-        createUserPage.confirmarSenhaFraca();
-        //Clicar botão cadastrar
-        createUserPage.clicarBtnCadastrar();
+        createUserPage.confirmarSenhaDiferente();
+        //Clicar fora do campo
+        createUserPage.clicarCampoFoto();
         //Validação
         Assert.assertEquals(createUserPage.validarMsgSenhasIguais(), "As senhas precisam ser iguais.");
     }

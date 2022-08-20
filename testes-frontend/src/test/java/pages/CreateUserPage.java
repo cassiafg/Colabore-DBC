@@ -1,6 +1,7 @@
 package pages;
 
 import com.github.javafaker.Faker;
+import com.github.javafaker.File;
 import org.openqa.selenium.By;
 import util.BaseTest;
 
@@ -10,11 +11,13 @@ public class CreateUserPage {
     public static final By campoSenha = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > input[type=password]");
     public static final By campoConfirmarSenha = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(2) > div:nth-child(2) > input[type=password]");
     public static final By btnCadastrar = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > button");
+    public static final By campoFoto = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(3) > section > div");
     public static final By msgErrorEmail = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(1) > div:nth-child(2) > p");
     public static final By msgSenhaFraca = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(2) > div:nth-child(1) > div.password-strength-meter > p > p");
     public static final By msgSenhasIguais = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(2) > div:nth-child(2) > p");
 
     Faker faker = new Faker();
+
     private String nome = faker.name().name();
     private String email = faker.name().username()+"@dbccompany.com.br";
     private String senha = "Testeteste5*";
@@ -40,9 +43,12 @@ public class CreateUserPage {
     public void confirmarSenhaValida(){
         BaseTest.sendKeys(campoConfirmarSenha, senha);
     }
+    public void confirmarSenhaDiferente(){BaseTest.sendKeys(campoConfirmarSenha, "12345678");}
     public void clicarBtnCadastrar(){
         BaseTest.click(btnCadastrar);
     }
+    public void clicarCampoFoto() { BaseTest.click(campoFoto);}
+    public void enviarFoto(){ BaseTest.sendKeys(campoFoto,"C:\\Users\\cassia.guimaraes\\Documents\\teste1.png");}
     public String validarMsgErrorEmail(){
         return BaseTest.getText(msgErrorEmail);
     }
