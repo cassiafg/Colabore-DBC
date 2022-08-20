@@ -50,28 +50,6 @@ public class TagService {
                 .extract().response();
     }
 
-//    public Response listarTagsPorIdCampanhaComSucesso(Integer idCampanha){
-//        return given().header("Authorization", token)
-//                .log().all()
-//                .when()
-//                .get(baseuri+"/"+idCampanha)
-//                .then()
-//                .log().all()
-//                .statusCode(200)
-//                .extract().response();
-//    }
-//
-//    public Response listarTagsPorIdCampanhaSemAutorizacao(Integer idCampanha){
-//        return given()
-//                .log().all()
-//                .when()
-//                .get(baseuri+"/"+idCampanha)
-//                .then()
-//                .log().all()
-//                .statusCode(403)
-//                .extract().response();
-//    }
-
     /**
      * Teste para criar uma tag com sucesso, utilizando request body
      * e a biblioteca faker
@@ -163,18 +141,5 @@ public class TagService {
                 .log().all()
                 .statusCode(403)
                 .extract().response();
-    }
-
-    //cria uma tag para teste
-    public TagDTO criarTagParaTeste(String jsonBody){
-        return given().header("Authorization", token)
-                .log().all()
-                .body(jsonBody)
-                .when()
-                .post(baseuri)
-                .then()
-                .log().all()
-                .statusCode(200)
-                .extract().as(TagDTO.class);
     }
 }

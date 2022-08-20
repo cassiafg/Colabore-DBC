@@ -46,24 +46,6 @@ public class TagAceitacao {
         Assert.assertEquals(resultService.getStatusCode(), 403);
     }
 
-//    @Test //Listar tags por idCampanha com sucesso
-//    public void getTagPorIdCampanhaComSucesso(){
-//        Integer idCampanha = 22;
-//        //GET - chamada para o serviço
-//        Response resultService = tagService.listarTagsPorIdCampanhaComSucesso(idCampanha);
-//        //Validação
-//        Assert.assertEquals(resultService.getStatusCode(), 200);
-//    }
-//
-//    @Test //Listar tags por idCampanha sem autorização
-//    public void getTagPorIdCampanhaSemAutorizacao(){
-//        Integer idCampanha = 22;
-//        //GET - chamada para o serviço
-//        Response resultService = tagService.listarTagsPorIdCampanhaSemAutorizacao(idCampanha);
-//        //Validação
-//        Assert.assertEquals(resultService.getStatusCode(), 403);
-//    }
-
     /**
      * Teste para criar uma tag com sucesso, utilizando request body
      * e a biblioteca faker
@@ -126,7 +108,7 @@ public class TagAceitacao {
      * Teste para deletar uma tag com sucesso
      */
     @Test //Deletar tag com sucesso
-    public void testDeleteTagComSucesso() throws IOException {
+    public void testDeleteTagComSucesso() {
         /* ========== Montagem do cenário ========== */
         TagDTO tagDTO = tagService.criarTagComSucesso(tagRequestBody);
         /* ========== Execução ========== */
@@ -148,9 +130,5 @@ public class TagAceitacao {
         Response resultService = tagService.deletarTagSemAutorizacao(Integer.valueOf(tagDTO.getIdTag()));
         /* ========== Validações ========== */
         Assert.assertEquals(resultService.getStatusCode(), 403);
-    }
-
-    private TagDTO criaUmaTagParaTeste() throws IOException {
-        return tagService.criarTagParaTeste(lerJson("src/test/resources/data/tag.json"));
     }
 }
