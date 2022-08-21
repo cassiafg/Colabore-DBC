@@ -1,17 +1,16 @@
 package pages;
 
 import com.github.javafaker.Faker;
-import com.github.javafaker.File;
 import org.openqa.selenium.By;
 import util.BaseTest;
 
 public class CreateUserPage {
-    public static final By campoNome = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(1) > div:nth-child(1) > input");
-    public static final By campoEmail = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(1) > div:nth-child(2) > input");
-    public static final By campoSenha = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > input[type=password]");
-    public static final By campoConfirmarSenha = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(2) > div:nth-child(2) > input[type=password]");
-    public static final By btnCadastrar = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > button");
-    public static final By campoFoto = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(3) > section > div");
+    public static final By campoNome = By.id("nome");
+    public static final By campoEmail = By.id("email");
+    public static final By campoSenha = By.id("senha");
+    public static final By campoConfirmarSenha = By.cssSelector("#confirmarSenha");
+    public static final By btnCadastrar = By.id("cadastrar");
+    public static final By campoFoto = By.id("foto");
     public static final By msgErrorEmail = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(1) > div:nth-child(2) > p");
     public static final By msgSenhaFraca = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(2) > div:nth-child(1) > div.password-strength-meter > p > p");
     public static final By msgSenhasIguais = By.cssSelector("#root > div.sc-hHLeRK.emTNlk > div:nth-child(1) > form > div > div:nth-child(2) > div:nth-child(2) > p");

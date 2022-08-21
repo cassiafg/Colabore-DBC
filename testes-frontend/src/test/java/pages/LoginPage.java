@@ -4,10 +4,10 @@ import org.openqa.selenium.By;
 import util.BaseTest;
 
 public class LoginPage {
-    public static final By campoEmail = By.cssSelector("#root > div.sc-ikZpkk.jaPuwG > div:nth-child(2) > form > div > div:nth-child(1) > input");
-    public static final By campoSenha = By.cssSelector("#root > div.sc-ikZpkk.jaPuwG > div:nth-child(2) > form > div > div:nth-child(2) > input[type=password]");
-    public static final By btnEntrar = By.cssSelector("#root > div.sc-ikZpkk.jaPuwG > div:nth-child(2) > form > div > button");
-    public static final By btnNaoPossuoCadastro = By.cssSelector("#root > div.sc-ikZpkk.jaPuwG > div:nth-child(2) > small");
+    public static final By campoEmail = By.id("email");
+    public static final By campoSenha = By.id("senha");
+    public static final By btnEntrar = By.cssSelector("#entrar");
+    public static final By btnNaoPossuoCadastro = By.id("signup");
     public static final By msgErrorEmail = By.cssSelector("#root > div.sc-ikZpkk.jaPuwG > div:nth-child(2) > form > div > div:nth-child(1) > p");
     public static final By msgErrorPassword = By.cssSelector("#root > div.sc-ikZpkk.jaPuwG > div:nth-child(2) > form > div > div:nth-child(2) > p");
 

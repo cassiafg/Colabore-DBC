@@ -1,10 +1,10 @@
 {
-  "meta": 100,
+  "meta": 1000,
   "descricao": "descricaoTeste",
-  "encerrarAutomaticamente": false,
-  "dataLimite": "2022-09-19T19:25:59.167Z",
+  "encerrarAutomaticamente": true,
+  "dataLimite": "2022-09-20T16:35:01.190Z",
   "nome": "nomeTeste",
   "tags": [
-      "tag"
+    "tag"
   ]
 }

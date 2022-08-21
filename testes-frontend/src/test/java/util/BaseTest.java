@@ -2,6 +2,8 @@ package util;
 
 import org.openqa.selenium.By;
 
+import java.util.concurrent.TimeUnit;
+
 public class BaseTest extends Elements {
 
     // Método de clicar
@@ -26,5 +28,9 @@ public class BaseTest extends Elements {
     public static void clear(By by){
         waitElement(by);
         element(by).clear();
+    }
+
+    public static void esperarTempo(){
+        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
     }
 }
