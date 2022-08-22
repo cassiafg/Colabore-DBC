@@ -27,20 +27,11 @@ public class CampanhasSteps extends Browser {
     }
 
     @Test
-    public void selecionarMinhasCampanhasMetaNaoAtingida(){
-        listarMinhasCampanhasUsuarioComCampanhas();
-        campanhasPage.clicarBtnMetaNaoAtingida();
-        campanhasPage.clicarBtnVerDetalhes();
-        Assert.assertEquals(detalheCampanhaPage.validarMsgBtnContribuicoes(), "Ver Contribuições");
-    }
-
-    @Test
-    public void selecionarMinhasCampanhasMetaAtingida(){
+    public void listarMinhasCampanhasMetaNaoAtingida(){
         createCampanhaSteps.criarCampanhaComSucessoSemFoto();
         campanhasPage.clicarBtnMinhasCampanhas();
-        campanhasPage.clicarBtnMetaAtingida();
-        campanhasPage.clicarBtnVerDetalhes();
-        Assert.assertEquals(detalheCampanhaPage.validarMsgBtnContribuicoes(), "Ver Contribuições");
+        campanhasPage.clicarBtnMetaNaoAtingida();
+        Assert.assertEquals(campanhasPage.validarMsgMetaNaoAtingida(), "Meta Não Atingida");
     }
 
     @Test
@@ -65,14 +56,6 @@ public class CampanhasSteps extends Browser {
     }
 
     @Test
-    public void listarMinhasCampanhasMetaNaoAtingida(){
-        createCampanhaSteps.criarCampanhaComSucessoSemFoto();
-        campanhasPage.clicarBtnMinhasCampanhas();
-        campanhasPage.clicarBtnMetaNaoAtingida();
-        Assert.assertEquals(campanhasPage.validarMsgMetaNaoAtingida(), "Meta Não Atingida");
-    }
-
-    @Test
     public void listarMinhasCampanhasMetaAtingida(){
         createCampanhaSteps.criarCampanhaComSucessoSemFoto();
         campanhasPage.clicarBtnMinhasCampanhas();
@@ -87,6 +70,26 @@ public class CampanhasSteps extends Browser {
         campanhasPage.clicarBtnVerDetalhes();
         Assert.assertEquals(campanhasPage.msgTag(), "Categoria:");
     }
+
+    @Test
+    public void selecionarMinhasCampanhasMetaNaoAtingida(){
+        listarMinhasCampanhasUsuarioComCampanhas();
+        campanhasPage.clicarBtnMetaNaoAtingida();
+        campanhasPage.clicarBtnVerDetalhes();
+        Assert.assertEquals(detalheCampanhaPage.validarMsgBtnContribuicoes(), "Ver Contribuições");
+    }
+
+    @Test
+    public void selecionarMinhasCampanhasMetaAtingida(){
+        createCampanhaSteps.criarCampanhaComSucessoSemFoto();
+        campanhasPage.clicarBtnMinhasCampanhas();
+        campanhasPage.clicarBtnMetaAtingida();
+        campanhasPage.clicarBtnVerDetalhes();
+        Assert.assertEquals(detalheCampanhaPage.validarMsgBtnContribuicoes(), "Ver Contribuições");
+    }
+
+
+
 
 
 }

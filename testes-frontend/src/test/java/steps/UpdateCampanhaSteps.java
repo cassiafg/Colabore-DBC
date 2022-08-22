@@ -8,7 +8,6 @@ import pages.UpdateCampanhaPage;
 import util.Browser;
 
 public class UpdateCampanhaSteps extends Browser {
-    LoginSteps loginSteps = new LoginSteps();
     CreateCampanhaSteps createCampanhaSteps = new CreateCampanhaSteps();
     CampanhasPage campanhasPage = new CampanhasPage();
     UpdateCampanhaPage updateCampanhaPage = new UpdateCampanhaPage();
@@ -46,7 +45,6 @@ public class UpdateCampanhaSteps extends Browser {
         Assert.assertEquals(campanhasPage.validarBtnMinhasCampanhas(), "Minhas Campanhas");
     }
 
-    //Não está permitindo editar
     @Test
     public void editarMetaDaCampanhaComSucesso(){
         //criar campanha
@@ -125,8 +123,6 @@ public class UpdateCampanhaSteps extends Browser {
         detalheCampanhaPage.clicarBtnEditarCampanha();;
         //preencher todos os dados
         updateCampanhaPage.clicarBtnExcluir();
-        //clicar em atualizar campanha
-//        updateCampanhaPage.clicarBtnAtualizar();
         //validações
         Assert.assertEquals(campanhasPage.validarBtnMinhasCampanhas(), "Minhas Campanhas");
     }
@@ -136,11 +132,12 @@ public class UpdateCampanhaSteps extends Browser {
         //criar campanha
         campanhasSteps.listarCampanhasMetaAtingida();
         //preencher todos os dados
-        updateCampanhaPage.clicarBtnExcluir();
+        campanhasPage.clicarBtnVerDetalhes();
+
         //clicar em atualizar campanha
 //        updateCampanhaPage.clicarBtnAtualizar();
         //validações
-        Assert.assertEquals(campanhasPage.validarBtnMinhasCampanhas(), "Minhas Campanhas");
+        Assert.assertEquals(detalheCampanhaPage.validarMsgBtnContribuicoes(), "Ver Contribuições");
     }
 
         @Test

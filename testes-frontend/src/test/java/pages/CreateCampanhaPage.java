@@ -16,7 +16,6 @@ public class CreateCampanhaPage {
     public static final By msgCampoObrigatorioDescricao = By.cssSelector(".sc-bZkfAO");
     public static final By msgCampoObrSelecConcl = By.cssSelector(".sc-cCsOjp > div:nth-child(2) > div:nth-child(1) > p:nth-child(3)");
     public static final By msgTitulo = By.cssSelector(".sc-cCsOjp > div:nth-child(1) > div:nth-child(1) > p:nth-child(3)");
-    public static final By msgEditarCampanha = By.cssSelector(".sc-gXmSlM > h2:nth-child(1)");
     public static final By msgFora = By.cssSelector(".sc-cCsOjp > div:nth-child(5) > label:nth-child(1)");
     public static final By msgDataLimite = By.cssSelector(".sc-cCsOjp > div:nth-child(2) > div:nth-child(2) > p:nth-child(3)");
     public static final By msgErroMeta = By.cssSelector(".sc-cCsOjp > div:nth-child(1) > div:nth-child(2) > p:nth-child(3)");
@@ -95,4 +94,5 @@ public class CreateCampanhaPage {
     public void clicarTitulo(){
         BaseTest.click(campoTitulo);
     }
+    public void clicarTag() { BaseTest.click(tags); }
 }

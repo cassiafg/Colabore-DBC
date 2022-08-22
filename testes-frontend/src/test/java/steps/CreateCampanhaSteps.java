@@ -165,10 +165,9 @@ public class CreateCampanhaSteps extends Browser {
         createCampanhaPage.preencherQntdMeta();
         createCampanhaPage.selecionarConcl();
         createCampanhaPage.preencherDataLimite();
+        createCampanhaPage.clicarTag();
         createCampanhaPage.preencherDescricao();
         createCampanhaPage.enviarFoto();
-        //clicar em cadastrar
-        createCampanhaPage.clicarBtnCadastrar();
         //validações
         Assert.assertEquals(createCampanhaPage.validarMsgCampoObrigatorio(), "Campo obrigatório!");
     }
