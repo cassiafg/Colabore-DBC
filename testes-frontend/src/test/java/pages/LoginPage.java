@@ -8,8 +8,8 @@ public class LoginPage {
     public static final By campoSenha = By.id("senha");
     public static final By btnEntrar = By.cssSelector("#entrar");
     public static final By btnNaoPossuoCadastro = By.id("signup");
-    public static final By msgErrorEmail = By.cssSelector("#root > div.sc-ikZpkk.jaPuwG > div:nth-child(2) > form > div > div:nth-child(1) > p");
-    public static final By msgErrorPassword = By.cssSelector("#root > div.sc-ikZpkk.jaPuwG > div:nth-child(2) > form > div > div:nth-child(2) > p");
+    public static final By msgErrorEmail = By.cssSelector(".sc-cTQhss");
+    public static final By msgErrorPassword = By.cssSelector(".sc-efBctP > div:nth-child(2) > p:nth-child(3)");
 
 
 

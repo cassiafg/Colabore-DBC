@@ -13,24 +13,162 @@ public class UpdateCampanhaSteps extends Browser {
     CampanhasPage campanhasPage = new CampanhasPage();
     UpdateCampanhaPage updateCampanhaPage = new UpdateCampanhaPage();
     DetalheCampanhaPage detalheCampanhaPage = new DetalheCampanhaPage();
+    CampanhasSteps campanhasSteps = new CampanhasSteps();
     @Test
-    public void editarCampanhaComSucesso(){
-        //logar
-        loginSteps.realizarLoginComSucesso();
+    public void editarTituloDaCampanhaComSucesso(){
         //criar campanha
-//        createCampanhaSteps.criarCampanhaComSucesso();
+        createCampanhaSteps.criarCampanhaComSucessoComFoto();
         //selecionar campanha
         campanhasPage.clicarBtnMinhasCampanhas();
-        campanhasPage.clicarBtnVerDetalhesMinhasCamp();
+        campanhasPage.clicarBtnVerDetalhes();
+        detalheCampanhaPage.clicarBtnEditarCampanha();;
+        //preencher todos os dados
+        updateCampanhaPage.preencherTitulo();
+        //clicar em atualizar campanha
+        updateCampanhaPage.clicarBtnAtualizar();
+        //validações
+        Assert.assertEquals(campanhasPage.validarBtnMinhasCampanhas(), "Minhas Campanhas");
+    }
+
+    @Test
+    public void editarDescricaoDaCampanhaComSucesso(){
+        //criar campanha
+        createCampanhaSteps.criarCampanhaComSucessoComFoto();
+        //selecionar campanha
+        campanhasPage.clicarBtnMinhasCampanhas();
+        campanhasPage.clicarBtnVerDetalhes();
+        detalheCampanhaPage.clicarBtnEditarCampanha();;
+        //preencher todos os dados
+        updateCampanhaPage.preencherDescricao();
+        //clicar em atualizar campanha
+        updateCampanhaPage.clicarBtnAtualizar();
+        //validações
+        Assert.assertEquals(campanhasPage.validarBtnMinhasCampanhas(), "Minhas Campanhas");
+    }
+
+    //Não está permitindo editar
+    @Test
+    public void editarMetaDaCampanhaComSucesso(){
+        //criar campanha
+        createCampanhaSteps.criarCampanhaComSucessoComFoto();
+        //selecionar campanha
+        campanhasPage.clicarBtnMinhasCampanhas();
+        campanhasPage.clicarBtnVerDetalhes();
+        detalheCampanhaPage.clicarBtnEditarCampanha();;
+        //preencher todos os dados
+        updateCampanhaPage.preencherQntdMeta();
+        //clicar em atualizar campanha
+        updateCampanhaPage.clicarBtnAtualizar();
+        //validações
+        Assert.assertEquals(campanhasPage.validarBtnMinhasCampanhas(), "Minhas Campanhas");
+    }
+    @Test
+    public void editarOpcaoEncerrarCampanhaComSucesso(){
+        //criar campanha
+        createCampanhaSteps.criarCampanhaComSucessoComFoto();
+        //selecionar campanha
+        campanhasPage.clicarBtnMinhasCampanhas();
+        campanhasPage.clicarBtnVerDetalhes();
+        detalheCampanhaPage.clicarBtnEditarCampanha();;
+        //preencher todos os dados
+        updateCampanhaPage.selecionarConcl();
+        //clicar em atualizar campanha
+        updateCampanhaPage.clicarBtnAtualizar();
+        //validações
+        Assert.assertEquals(campanhasPage.validarBtnMinhasCampanhas(), "Minhas Campanhas");
+    }
+
+    @Test
+    public void editarFotoComSucesso(){
+        //criar campanha
+        createCampanhaSteps.criarCampanhaComSucessoComFoto();
+        //selecionar campanha
+        campanhasPage.clicarBtnMinhasCampanhas();
+        campanhasPage.clicarBtnVerDetalhes();
+        detalheCampanhaPage.clicarBtnEditarCampanha();;
+        //preencher todos os dados
+        updateCampanhaPage.enviarFoto();
+        //clicar em atualizar campanha
+        updateCampanhaPage.clicarBtnAtualizar();
+        //validações
+        Assert.assertEquals(campanhasPage.validarBtnMinhasCampanhas(), "Minhas Campanhas");
+    }
+
+    //não é possível editar meta
+    @Test
+    public void editarTodosOsCamposComSucesso(){
+        //criar campanha
+        createCampanhaSteps.criarCampanhaComSucessoComFoto();
+        //selecionar campanha
+        campanhasPage.clicarBtnMinhasCampanhas();
+        campanhasPage.clicarBtnVerDetalhes();
         detalheCampanhaPage.clicarBtnEditarCampanha();;
         //preencher todos os dados
         updateCampanhaPage.preencherTitulo();
         updateCampanhaPage.preencherQntdMeta();
         updateCampanhaPage.selecionarConcl();
         updateCampanhaPage.preencherDataLimite();
-        updateCampanhaPage.preencherTag();
-        updateCampanhaPage.preencherDescricao();
         updateCampanhaPage.enviarFoto();
+        //clicar em atualizar campanha
+        updateCampanhaPage.clicarBtnAtualizar();
+        //validações
+        Assert.assertEquals(campanhasPage.validarBtnMinhasCampanhas(), "Minhas Campanhas");
+    }
+
+    @Test
+    public void excluirCampanhaComSucesso(){
+        //criar campanha
+        createCampanhaSteps.criarCampanhaComSucessoComFoto();
+        //selecionar campanha
+        campanhasPage.clicarBtnMinhasCampanhas();
+        campanhasPage.clicarBtnVerDetalhes();
+        detalheCampanhaPage.clicarBtnEditarCampanha();;
+        //preencher todos os dados
+        updateCampanhaPage.clicarBtnExcluir();
+        //clicar em atualizar campanha
+//        updateCampanhaPage.clicarBtnAtualizar();
+        //validações
+        Assert.assertEquals(campanhasPage.validarBtnMinhasCampanhas(), "Minhas Campanhas");
+    }
+
+    @Test
+    public void excluirCampanhaSemSucesso(){
+        //criar campanha
+        campanhasSteps.listarCampanhasMetaAtingida();
+        //preencher todos os dados
+        updateCampanhaPage.clicarBtnExcluir();
+        //clicar em atualizar campanha
+//        updateCampanhaPage.clicarBtnAtualizar();
+        //validações
+        Assert.assertEquals(campanhasPage.validarBtnMinhasCampanhas(), "Minhas Campanhas");
+    }
+
+        @Test
+        public void adicionarTagDaCampanhaComSucesso(){
+        //criar campanha
+        createCampanhaSteps.criarCampanhaComSucessoComFoto();
+        //selecionar campanha
+        campanhasPage.clicarBtnMinhasCampanhas();
+        campanhasPage.clicarBtnVerDetalhes();
+        detalheCampanhaPage.clicarBtnEditarCampanha();;
+        //preencher todos os dados
+        updateCampanhaPage.preencherTag();
+        //clicar em atualizar campanha
+        updateCampanhaPage.clicarBtnAtualizar();
+        //validações
+        Assert.assertEquals(campanhasPage.validarBtnMinhasCampanhas(), "Minhas Campanhas");
+    }
+
+    @Test
+    public void excluirTagDaCampanhaComSucesso(){
+        //criar campanha
+        createCampanhaSteps.criarCampanhaComSucessoComDuasTags();
+        //selecionar campanha
+        campanhasPage.clicarBtnMinhasCampanhas();
+        campanhasPage.clicarBtnVerDetalhes();
+        detalheCampanhaPage.clicarBtnEditarCampanha();;
+        //preencher todos os dados
+        updateCampanhaPage.clicarExcluirTag();
         //clicar em atualizar campanha
         updateCampanhaPage.clicarBtnAtualizar();
         //validações

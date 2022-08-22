@@ -1,6 +1,7 @@
 package util;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 
 import java.util.concurrent.TimeUnit;
 
@@ -30,7 +31,14 @@ public class BaseTest extends Elements {
         element(by).clear();
     }
 
+    public static void backspace(By by){
+        waitElement(by);
+        element(by).sendKeys(Keys.BACK_SPACE);
+    }
+
+
+
     public static void esperarTempo(){
-        driver.manage().timeouts().implicitlyWait(1000, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(1, TimeUnit.MINUTES);
     }
 }

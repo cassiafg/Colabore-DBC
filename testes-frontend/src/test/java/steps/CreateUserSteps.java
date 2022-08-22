@@ -12,6 +12,7 @@ public class CreateUserSteps extends Browser {
     CreateUserPage createUserPage = new CreateUserPage();
     CampanhasPage campanhasPage = new CampanhasPage();
 
+
     @Test
     public void criarUsuarioComSucessoSemFoto(){
         //Clicar em não possuo cadastro
@@ -59,6 +60,21 @@ public class CreateUserSteps extends Browser {
     }
 
     @Test
+    public void criarUsuarioSemInformarEmail(){
+        //Clicar em não possuo cadastro
+        loginPage.clicarBtnNaoPossuoCadastro();
+        //Preencher dados
+        createUserPage.preencherNomeValido();
+        createUserPage.clicarCampoEmail();
+        createUserPage.preencherSenhaValida();
+        createUserPage.confirmarSenhaValida();
+        //Clicar botão cadastrar
+        createUserPage.clicarBtnCadastrar();
+        //Validação
+        Assert.assertEquals(createUserPage.validarMsgErrorEmail(), "Campo obrigatório!");
+    }
+
+    @Test
     public void criarUsuarioSenhaFraca(){
         //Clicar em não possuo cadastro
         loginPage.clicarBtnNaoPossuoCadastro();
@@ -82,9 +98,24 @@ public class CreateUserSteps extends Browser {
         createUserPage.preencherEmailValido();
         createUserPage.preencherSenhaValida();
         createUserPage.confirmarSenhaDiferente();
-        //Clicar fora do campo
-        createUserPage.clicarCampoFoto();
+        createUserPage.clicarFora();
         //Validação
         Assert.assertEquals(createUserPage.validarMsgSenhasIguais(), "As senhas precisam ser iguais.");
+    }
+
+    @Test
+    public void criarUsuarioSemConfirmarSenha(){
+        //Clicar em não possuo cadastro
+        loginPage.clicarBtnNaoPossuoCadastro();
+        //Preencher dados
+        createUserPage.preencherNomeValido();
+        createUserPage.preencherEmailValido();
+        createUserPage.preencherSenhaValida();
+        createUserPage.clicarConfirmarSenha();
+        createUserPage.clicarFora();
+        //Clicar botão cadastrar
+        createUserPage.clicarBtnCadastrar();
+        //Validação
+        Assert.assertEquals(createUserPage.validarMsgErrorEmail(), "Campo obrigatório!");
     }
 }

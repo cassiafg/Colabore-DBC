@@ -27,7 +27,7 @@ public class LoginSteps extends Browser {
         loginPage.preencherSenhaInvalida();
         loginPage.clicarBtnEntrar();
         //Validações
-        Assert.assertEquals(loginPage.validarMsgErrorPassword(), "Mínimo de 2 caractéres");
+        Assert.assertEquals(loginPage.validarMsgErrorPassword(), "Mínimo de 8 caractéres");
     }
 
     @Test
@@ -37,6 +37,15 @@ public class LoginSteps extends Browser {
         loginPage.preencherSenhaValida();
         loginPage.clicarBtnEntrar();
         //Validações
-        Assert.assertEquals(loginPage.validarMsgErrorEmail(), "Mínimo de 2 caractéres");
+        Assert.assertEquals(loginPage.validarMsgErrorEmail(), "O email deve conter: @dbccompany.com.br");
+    }
+
+    @Test
+    public void realizarLoginCamposEmBranco(){
+        //Não preencher dados de login
+        loginPage.clicarBtnEntrar();
+        //Validações
+        Assert.assertEquals(loginPage.validarMsgErrorPassword(), "Campo obrigatório!");
+        Assert.assertEquals(loginPage.validarMsgErrorEmail(), "Campo obrigatório!");
     }
 }

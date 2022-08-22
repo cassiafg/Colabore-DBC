@@ -10,34 +10,72 @@ public class UpdateCampanhaPage {
         public static final By dataLimite = By.cssSelector("#dataLimite");
         public static final By tags = By.cssSelector("#tags");
         public static final By campoDescricao = By.cssSelector("#descricao");
-        public static final By foto = By.cssSelector(".sc-ikZpkk > div:nth-child(5) > section:nth-child(2) > div:nth-child(1)");
-        public static final By btnAtualizarCampanha = By.cssSelector("button.sc-ftvSup:nth-child(6)");
+        public static final By foto = By.cssSelector(".sc-cCsOjp > div:nth-child(5) > section:nth-child(2) > div:nth-child(1) > input:nth-child(1)");
+        public static final By btnAtualizarCampanha = By.cssSelector("button.sc-papXJ:nth-child(6)");
+        public static final By btnExcluir = By.cssSelector("button.sc-papXJ:nth-child(7)");
+        public static final By msgCampanhaConcluida = By.cssSelector(".finished > div:nth-child(1) > h3:nth-child(1)");
+        public static final By excluirTag = By.cssSelector(".sc-ciZhAO > div:nth-child(3) > div:nth-child(2) > span:nth-child(1) > span:nth-child(1)");
 
+        public void clicarExcluirTag(){
+            BaseTest.click(excluirTag);
+        }
+        public String validarMsgConcluida(){
+            return BaseTest.getText(msgCampanhaConcluida);
+        }
+        public void clearTitulo(){
+            for(int i =0; i<20;i++){
+            BaseTest.backspace(campoTitulo);
+        }}
+
+        public void clearQntMeta(){
+        for(int i =0; i<20;i++){
+            BaseTest.backspace(campoQntdMeta);
+        }}
+    public void clearDescricao(){
+        for(int i =0; i<20;i++){
+            BaseTest.backspace(campoDescricao);
+        }}
+    public void clicarBtnExcluir(){
+            BaseTest.click(btnExcluir);
+    }
         public void preencherTitulo(){
-            BaseTest.sendKeys(campoTitulo, "titulo teste");
+            BaseTest.click(campoTitulo);
+            clearTitulo();
+            BaseTest.sendKeys(campoTitulo, "titulo editado");
+        }
+        public void clearMeta(){
+            BaseTest.clear(campoQntdMeta);
         }
         public void preencherQntdMeta(){
-            BaseTest.sendKeys(campoQntdMeta, "10000");
+            BaseTest.click(campoQntdMeta);
+            clearQntMeta();
+            BaseTest.sendKeys(campoQntdMeta, "5000");
         }
         public void selecionarConcl(){
             BaseTest.click(selectConcl);
-            BaseTest.sendKeys(selectConcl, "s");
+            BaseTest.sendKeys(selectConcl, "n");
             BaseTest.click(selectConcl);
         }
+        public void clearDataLimite(){
+            BaseTest.clear(dataLimite);
+        }
         public void preencherDataLimite(){
-            BaseTest.sendKeys(dataLimite, "30112022");
+            BaseTest.sendKeys(dataLimite, "01012023");
         }
         public void preencherTag(){
-            BaseTest.sendKeys(tags, "tag");
+            BaseTest.sendKeys(tags, "tagEdit");
             BaseTest.sendKeys(tags, String.valueOf(Keys.ENTER));
+            BaseTest.esperarTempo();
         }
 
         public void preencherDescricao(){
-            BaseTest.sendKeys(campoDescricao, "teste");
+            BaseTest.click(campoDescricao);
+            clearDescricao();
+            BaseTest.sendKeys(campoDescricao, "editado");
         }
 
         public void enviarFoto(){
-            BaseTest.sendKeys(foto,"C:\\Colabore-DBC\\testes-frontend\\teste1.png");
+            BaseTest.sendKeys(foto,"C:\\Colabore-DBC\\testes-frontend\\image\\image.jpg");
         }
 
         public void clicarBtnAtualizar(){
