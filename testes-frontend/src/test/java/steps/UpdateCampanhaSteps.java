@@ -133,9 +133,6 @@ public class UpdateCampanhaSteps extends Browser {
         campanhasSteps.listarCampanhasMetaAtingida();
         //preencher todos os dados
         campanhasPage.clicarBtnVerDetalhes();
-
-        //clicar em atualizar campanha
-//        updateCampanhaPage.clicarBtnAtualizar();
         //validações
         Assert.assertEquals(detalheCampanhaPage.validarMsgBtnContribuicoes(), "Ver Contribuições");
     }

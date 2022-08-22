@@ -1,0 +1,10 @@
+{
+  "meta": 1000,
+  "descricao": "descricaoTeste",
+  "encerrarAutomaticamente": true,
+  "dataLimite": "2022-09-20T16:35:01.190Z",
+  "nome": "nomeTeste",
+  "tags": [
+    "tag"
+  ]
+}
