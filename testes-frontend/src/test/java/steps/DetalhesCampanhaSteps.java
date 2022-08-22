@@ -24,7 +24,7 @@ public class DetalhesCampanhaSteps extends Browser {
     public void selecionarEditarCampanhaComSucesso(){
         campanhasSteps.selecionarMinhasCampanhasMetaNaoAtingida();
         detalheCampanhaPage.clicarBtnEditarCampanha();
-        Assert.assertEquals(detalheCampanhaPage.validarMsgTitulo(), "Editar campanha");
+        Assert.assertEquals(detalheCampanhaPage.validarMsgTitulo(), "Atualizar campanha");
     }
 
     @Test
