@@ -6,7 +6,6 @@ import util.BaseTest;
 public class DetalheCampanhaPage {
     public static final By btnVerContribuicoes = By.cssSelector("#botaoContribuicoes");
     public static final By btnContribuir = By.cssSelector("#botaoContribuir");
-    public static final By btnCancelarContribuicao = By.cssSelector("#botaoContribuir");
     public static final By campoValorContribuicao = By.cssSelector("#valor");
     public static final By btnEnviarContribuicao = By.cssSelector("#enviarContribuicao");
     public static final By btnConfirmarContribuicao = By.cssSelector("#confirmarModal");

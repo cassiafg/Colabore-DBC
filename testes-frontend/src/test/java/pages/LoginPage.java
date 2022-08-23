@@ -9,7 +9,7 @@ public class LoginPage {
     public static final By btnEntrar = By.cssSelector("#entrar");
     public static final By btnNaoPossuoCadastro = By.id("signup");
     public static final By msgErrorEmail = By.cssSelector(".sc-cTQhss");
-    public static final By msgErrorPassword = By.cssSelector(".sc-efBctP > div:nth-child(2) > p:nth-child(3)");
+    public static final By msgErrorPassword = By.cssSelector("#erro-senha");
 
 
 
@@ -36,6 +36,12 @@ public class LoginPage {
     }
     public String validarMsgErrorPassword(){
         return BaseTest.getText(msgErrorPassword);
+    }
+    public void preencherEmailMetaAtingida(){
+        BaseTest.sendKeys(campoEmail, "maria@dbccompany.com.br");
+    }
+    public void preencherSenhaMetaAtingida(){
+        BaseTest.sendKeys(campoSenha, "Teste123@");
     }
 
 }

@@ -6,12 +6,9 @@ import util.BaseTest;
 
 public class CampanhasPage {
     public static final By btnCriarCampanha = By.cssSelector("#criarCampanha");
-    public static final By btnTodasCampanhas = By.id("todasCampanhas");
     public static final By btnMetaAtingida = By.id("metaAtingida");
     public static final By btnMetaNaoAtingida = By.id("metaNaoAtingida");
     public static final By btnMinhasCampanhas = By.id("minhasCampanhas");
-    public static final By btnMinhasContribuicaoes = By.id("minhasContribuicoes");
-    public static final By btnLogout = By.id("logout");
     public static final By btnVerDetalhes = By.cssSelector("#verDetalhes");
     public static final By msgMinhasCampanhas = By.cssSelector(".sc-bczRLJ");
     public static final By msgNenhumaCampanha = By.cssSelector(".sc-ksZaOG > h1:nth-child(2)");
@@ -20,6 +17,7 @@ public class CampanhasPage {
     public static final By msgMetaNaoAtingida = By.cssSelector(".sc-bczRLJ");
     public static final By campoPesquisarTag = By.cssSelector("#tags");
     public static final By msgTag = By.cssSelector("span.dKZeFP:nth-child(2) > span:nth-child(1)");
+
 
     public String msgTag(){
         return BaseTest.getText(msgTag);

@@ -13,7 +13,7 @@ public class CreateUserPage {
     public static final By campoFoto = By.cssSelector("#foto > input:nth-child(1)");
     public static final By msgErrorEmail = By.cssSelector(".sc-bZkfAO");
     public static final By msgSenhaFraca = By.cssSelector(".password__label");
-    public static final By msgSenhasIguais = By.cssSelector(".sc-gicCDI > div:nth-child(2) > div:nth-child(2) > p:nth-child(3)");
+    public static final By msgSenhasIguais = By.cssSelector("#erro-confirmarSenha");
 
     Faker faker = new Faker();
 

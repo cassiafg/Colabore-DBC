@@ -146,7 +146,7 @@ public class UpdateCampanhaSteps extends Browser {
         campanhasPage.clicarBtnVerDetalhes();
         detalheCampanhaPage.clicarBtnEditarCampanha();;
         //preencher todos os dados
-        updateCampanhaPage.preencherTag();
+//        updateCampanhaPage.preencherTag();
         //clicar em atualizar campanha
         updateCampanhaPage.clicarBtnAtualizar();
         //validações

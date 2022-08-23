@@ -7,6 +7,7 @@ import pages.DetalheCampanhaPage;
 import util.Browser;
 
 public class CampanhasSteps extends Browser {
+    LoginSteps loginSteps = new LoginSteps();
     CreateCampanhaSteps createCampanhaSteps = new CreateCampanhaSteps();
     CampanhasPage campanhasPage = new CampanhasPage();
     CreateUserSteps createUserSteps = new CreateUserSteps();
@@ -81,7 +82,7 @@ public class CampanhasSteps extends Browser {
 
     @Test
     public void selecionarMinhasCampanhasMetaAtingida(){
-        createCampanhaSteps.criarCampanhaComSucessoSemFoto();
+        loginSteps.realizarLoginMetaAtingida();
         campanhasPage.clicarBtnMinhasCampanhas();
         campanhasPage.clicarBtnMetaAtingida();
         campanhasPage.clicarBtnVerDetalhes();

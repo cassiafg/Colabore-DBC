@@ -48,4 +48,11 @@ public class LoginSteps extends Browser {
         Assert.assertEquals(loginPage.validarMsgErrorPassword(), "Campo obrigatório!");
         Assert.assertEquals(loginPage.validarMsgErrorEmail(), "Campo obrigatório!");
     }
+
+    @Test
+    public void realizarLoginMetaAtingida(){
+        loginPage.preencherEmailMetaAtingida();
+        loginPage.preencherSenhaMetaAtingida();
+        loginPage.clicarBtnEntrar();
+    }
 }
