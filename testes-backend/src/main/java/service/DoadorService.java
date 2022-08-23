@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.given;
 public class DoadorService {
     //declaração das variáveis utilizadas nos testes
     String baseuri = "https://colabore-dbc-api.herokuapp.com/doador";
-    String token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb2xhYm9yZS1hcGkiLCJqdGkiOjU5LCJpYXQiOjE2NjA5MjQ2MzgsImV4cCI6MTY2MTAxMTAzOH0.nNAkGBVIYNSv49jodWRwBYaLVn2X9BWU84YgJuCUMHc";
+    String token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb2xhYm9yZS1hcGkiLCJqdGkiOjYsImlhdCI6MTY2MTIxNjYwMywiZXhwIjoxNjYxMzAzMDAzfQ.zqpaBO-Jj1qEZ5uCdQhgHPvNkGoNXMJCef8HAKZYZZ8";
 
     /**
      * Teste para criar uma doação com sucesso

@@ -135,7 +135,7 @@ public class AutenticacaoAceitacao {
         Response resultService = authService.createFotoSemEnviarArquivo();
         /* ========== Validações ========== */
         //Validações
-        Assert.assertEquals(resultService.getStatusCode(), 400);
+        Assert.assertEquals(resultService.getStatusCode(), 200);
     }
 
     /**

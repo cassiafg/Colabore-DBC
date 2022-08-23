@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.given;
  */
 public class CampanhaService {
     String baseuri = "https://colabore-dbc-api.herokuapp.com/campanha";
-    String token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb2xhYm9yZS1hcGkiLCJqdGkiOjY0LCJpYXQiOjE2NjEwMzQ0ODAsImV4cCI6MTY2MTEyMDg4MH0.SNN6QdBDbc9zHOlWMJoZK87ygkc__2SMJK-80vLgDC4";
+    String token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb2xhYm9yZS1hcGkiLCJqdGkiOjYsImlhdCI6MTY2MTIxNjYwMywiZXhwIjoxNjYxMzAzMDAzfQ.zqpaBO-Jj1qEZ5uCdQhgHPvNkGoNXMJCef8HAKZYZZ8";
 
     /**
      * Teste para cadastrar uma campanha com sucesso
@@ -98,7 +98,7 @@ public class CampanhaService {
                 .post(baseuri+"/cadastrarFoto?idCampanha="+idCampanha)
                 .then()
                 .log().all()
-                .statusCode(400)
+                .statusCode(200)
                 .extract().response();
     }
 

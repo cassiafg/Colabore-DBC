@@ -15,7 +15,7 @@ import static io.restassured.RestAssured.given;
 public class TagService {
     //declaração das variáveis utilizadas nos testes
     String baseuri = "https://colabore-dbc-api.herokuapp.com/tag";
-    String token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb2xhYm9yZS1hcGkiLCJqdGkiOjU5LCJpYXQiOjE2NjA5MjQ2MzgsImV4cCI6MTY2MTAxMTAzOH0.nNAkGBVIYNSv49jodWRwBYaLVn2X9BWU84YgJuCUMHc";
+    String token = "eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJjb2xhYm9yZS1hcGkiLCJqdGkiOjYsImlhdCI6MTY2MTIxNjYwMywiZXhwIjoxNjYxMzAzMDAzfQ.zqpaBO-Jj1qEZ5uCdQhgHPvNkGoNXMJCef8HAKZYZZ8";
 
     //request body com dados da biblioteca faker
     TagRequestBody tagRequestBody = new TagRequestBody();
